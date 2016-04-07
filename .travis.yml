@@ -1,0 +1,25 @@
+language: fortran
+
+before_script:
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+sudo: required
+
+dist: trusty # Ubuntu 14.04.
+
+compiler:
+  - gcc
+
+addons:
+  apt:
+    # Travis whitelist of packages.
+    # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-trusty
+    packages:
+      - cmake
+      - gcc
+      - gfortran
+
+# This comment is here because I needed a first build!
+script: 
+  - mkdir build && cd build &&  cmake ../ &&  make &&  ./src/HelloWorld
+
