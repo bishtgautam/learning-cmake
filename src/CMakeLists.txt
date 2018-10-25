@@ -1,3 +1,3 @@
-add_executable(HelloWorld hello.F90) 
+add_executable(HelloWorld hello.f90) 
 
 
